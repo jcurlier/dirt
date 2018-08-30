@@ -45,9 +45,8 @@ const exec = async () => {
 
   debug(`Getting the registries`);
   const registries = await Promise.all(
-    // TODO; How do we know the registry is a StakableRegistry?
     registryDescriptors.map(
-      descriptor => client.getRegistryAtAddress(descriptor.address, 'StakableRegistry'),
+      descriptor => client.getRegistryAtAddress(descriptor.address, 'ChallengeableRegistry'),
     ),
   );
   debug(`Done getting the registries`);

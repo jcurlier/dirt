@@ -9,8 +9,7 @@ const {Dirt} = require('@dirt/lib');
 // Configuration
 const {ROOT_ADDRESS: rootAddress, INFURA_ENDPOINT: endpoint} = process.env;
 
-// TODO: how do we know it is a StakableRegistry?
-const REGISTRY_DEFAULT_TYPE = 'StakableRegistry';
+const REGISTRY_DEFAULT_TYPE = 'ChallengeableRegistry';
 
 // Dirt client configuration
 const dirtConfiguration = {
