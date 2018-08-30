@@ -56,7 +56,7 @@ async function getRegistries() {
       name,
       address,
       vote_style: voteStyle,
-      timestamp,
+      timestamp: parseInt(timestamp, 10),
       date: new Date(timestamp * 1000).toUTCString(),
     });
   }
@@ -93,7 +93,7 @@ async function getRegistryItems(registryAddress) {
       owner,
       value,
       blockHistory,
-      timestamp,
+      timestamp: parseInt(timestamp, 10),
       date: new Date(timestamp * 1000).toUTCString(),
       stake: stake.toString(),
     });
