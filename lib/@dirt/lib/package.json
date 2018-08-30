@@ -1,0 +1,53 @@
+{
+  "_from": "@dirt/lib",
+  "_id": "@dirt/lib@0.1.0",
+  "_inBundle": false,
+  "_integrity": "sha512-j1/24Vhj3febQ1C2+e4Nj9pUnutLjS5t5OqZZx0g236tJcSWkDcXGnF4O0iyBoEwwFvbdig9rVpZlAeNHI/PTg==",
+  "_location": "/@dirt/lib",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@dirt/lib",
+    "name": "@dirt/lib",
+    "escapedName": "@dirt%2flib",
+    "scope": "@dirt",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@dirt/lib/-/lib-0.1.0.tgz",
+  "_shasum": "294d9880f30b62d0a250e5c6537bab6d680bb99f",
+  "_spec": "@dirt/lib",
+  "_where": "/Users/iamwil/projects/scratch/dirt_cache_test",
+  "author": "",
+  "bundleDependencies": false,
+  "dependencies": {
+    "@dirt/contracts": "^0.1.0",
+    "bignumber.js": "git+https://github.com/frozeman/bignumber.js-nolookahead.git",
+    "truffle-contract": "^3.0.5",
+    "tslib": "^1.9.1"
+  },
+  "deprecated": false,
+  "description": "dirt lib",
+  "devDependencies": {
+    "@types/bignumber.js": "^5.0.0",
+    "typescript": "^2.8.3",
+    "web3-typescript-typings": "^0.10.2"
+  },
+  "license": "ISC",
+  "main": "./dist/index.js",
+  "name": "@dirt/lib",
+  "scripts": {
+    "build": "node ../../node_modules/typescript/bin/tsc -p .",
+    "prepublish": "npm run build",
+    "watch": "node ../../node_modules/typescript/bin/tsc -w -p .",
+    "watch:migrate": "npm run watch"
+  },
+  "types": "./dist/index.d.ts",
+  "version": "0.1.0"
+}

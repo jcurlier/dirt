@@ -1,0 +1,48 @@
+{
+  "_from": "@dirt/contracts@^0.1.0",
+  "_id": "@dirt/contracts@0.1.0",
+  "_inBundle": false,
+  "_integrity": "sha512-JDk9jkkhJPPemJ82zqQspoYBOGIUfgOaXCEGh8PImxkUzBp+5lGpathr/OVhL6GMECfGOdwTP1fB2L2kwvhd/Q==",
+  "_location": "/@dirt/contracts",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@dirt/contracts@^0.1.0",
+    "name": "@dirt/contracts",
+    "escapedName": "@dirt%2fcontracts",
+    "scope": "@dirt",
+    "rawSpec": "^0.1.0",
+    "saveSpec": null,
+    "fetchSpec": "^0.1.0"
+  },
+  "_requiredBy": [
+    "/@dirt/lib"
+  ],
+  "_resolved": "https://registry.npmjs.org/@dirt/contracts/-/contracts-0.1.0.tgz",
+  "_shasum": "cf0696b143cbc954362976212c145fc891aa39b3",
+  "_spec": "@dirt/contracts@^0.1.0",
+  "_where": "/Users/iamwil/projects/scratch/dirt_cache_test/node_modules/@dirt/lib",
+  "author": {
+    "name": "Team DIRT"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Smart Contracts for Entity Protocol",
+  "devDependencies": {
+    "@dirt/contracts-config": "^0.1.0",
+    "@dirt/contracts-migrations": "^0.1.0",
+    "onchange": "^4.0.0",
+    "zeppelin-solidity": "1.7.0"
+  },
+  "license": "UNLICENSED",
+  "main": "index.js",
+  "name": "@dirt/contracts",
+  "scripts": {
+    "build": "node ../../node_modules/truffle/build/cli.bundled.js compile",
+    "prepublish": "npm run build",
+    "watch": "onchange -i -d 1000 '**/*.sol' --wait -- npm run build",
+    "watch:migrate": "npm run watch"
+  },
+  "version": "0.1.0"
+}
