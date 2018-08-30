@@ -38,8 +38,8 @@ Get registry items | > 7s for 10 items
 ID | Description
 ---- | ----
 1 | Should the item endpoint be `/registries/:id/items`?
-2 | `itemAtIndex` would be faster than `Async` enumerator, it doesn't seem to be the recommended `API` (it might also create some issue of concurrency)
-3 | Is the name for the `registry` returning the `address`?
-4 | How to know which type a registry is, currently assuming `StackableRegistry`? Use ChallengeableRegistry
+2 | `itemAtIndex` would be faster than `Async` enumerator, it doesn't seem to be the recommended `API` (it might also create some issue of concurrency) - keep using Enumerator
+3 | Is the `name` for the `registry` returning the `address`? fixed in a new release
+4 | How to know which type a registry is, currently assuming `StackableRegistry`? Use `ChallengeableRegistry`
 5 | Productionize (Error Handling, Logging, etc.)
 
