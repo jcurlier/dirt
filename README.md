@@ -11,12 +11,13 @@ INFURA_ENDPOINT | Ropsen Infura endpoint (for example `https://ropsten.infura.io
 ROOT_ADDRESS | Dirt root address, for example `0xDb1E8F93854cbC9272dA69544Fc62E5d4511c7D1` (required)
 PORT | For example, `3001` (default to `3001`)
 
+2. Run docker compose
 
-Action | Time
----- | ----
-Server initialization | 6s
-Get registries | 3s for 2 registries
-Get registry items | > 7s for 10 items
+`docker-compose up --build`
+
+3. Connect to the `api`
+
+*Tip*: You can use the Insomnia [workspace](./tools/insomnia)
 
 ## Performance
 
