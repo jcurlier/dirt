@@ -2,7 +2,9 @@
 
 ## Running the Web server
 
-1. Set the environment variables
+1. Get an Infura API key at [infura.io](infura.io).
+
+2. Set the environment variables
 
 Variable | Description
 ---- | ----
@@ -11,11 +13,11 @@ INFURA_ENDPOINT | Ropsen Infura endpoint (for example `https://ropsten.infura.io
 ROOT_ADDRESS | Dirt root address, for example `0xDb1E8F93854cbC9272dA69544Fc62E5d4511c7D1` (required)
 PORT | For example, `3001` (default to `3001`)
 
-2. Run docker compose
+3. Run docker compose
 
 `docker-compose up --build`
 
-3. Connect to the `api`
+4. Connect to the `api`, default [http://localhost/:3001/](http://localhost/:3001/)
 
 *Tip*: You can use the Insomnia [workspace](./tools/insomnia)
 
