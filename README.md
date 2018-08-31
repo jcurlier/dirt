@@ -35,11 +35,19 @@ Get registry items | > 7s for 10 items
 
 ## To Do
 
+### Open
+
 ID | Description
 ---- | ----
 1 | Should the item endpoint be `/registries/:id/items`?
-2 | `itemAtIndex` would be faster than `Async` enumerator, it doesn't seem to be the recommended `API` (it might also create some issue of concurrency) - keep using Enumerator
-3 | Is the `name` for the `registry` returning the `address`? fixed in a new release
-4 | How to know which type a registry is, currently assuming `StackableRegistry`? Use `ChallengeableRegistry`
-5 | Productionize (Error Handling, Logging, etc.)
+2 | The HTTP provider is [deprecated](https://web3js.readthedocs.io/en/1.0/web3.html#value), as it won’t work for subscriptions.
+3 | Productionize (Error Handling, Logging, etc.)
+
+### Closed
+
+ID | Description
+---- | ----
+1 | `itemAtIndex` would be faster than `Async` enumerator, it doesn't seem to be the recommended `API` (it might also create some issue of concurrency) - *keep using `Enumerator`*
+2 | Is the `name` for the `registry` returning the `address`? `fixed in a new release`
+3 | How to know which type a registry is, currently assuming `StackableRegistry`? *Use `ChallengeableRegistry`*
 
