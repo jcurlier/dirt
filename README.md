@@ -21,20 +21,6 @@ PORT | For example, `3001` (default to `3001`)
 
 *Tip*: You can use the Insomnia [workspace](./tools/insomnia)
 
-## Performance
-
-Action | Time
----- | ----
-Server initialization | 6s
-Get registries | 3s for 2 registries
-Get registry items | > 7s for 10 items
-
-## Caching strategy
-
-- Browser (ETag, etc.)
-- Service
-- Connector
-
 ## To Do
 
 ### Open

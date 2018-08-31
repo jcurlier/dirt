@@ -45,13 +45,16 @@ const exec = async () => {
   debug(`Getting the registry items`);
   const itemPromises = [];
   registryDescriptors.forEach((descriptor) => {
-    return client.getRegistryAtAddress(descriptor.address, 'ChallengeableRegistry')
+    client.getRegistryAtAddress(descriptor.address, 'ChallengeableRegistry')
       .then(async (registry) => {
         const itemsCount = await registry.count();
         for (let j = 0; j < itemsCount; j++) {
-          itemPromises.push(registry.itemAtIndex(j).then(({key, value}) => {
-            debug(`Registry ${descriptor.name} Item ${key}:${value}}`);
-          }));
+          itemPromises.push(
+            registry.itemAtIndex(j)
+              .then(({key, value}) => {
+                debug(`Registry ${descriptor.name} Item ${key}:${value}}`);
+              }),
+          );
         }
       });
   });
