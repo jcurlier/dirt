@@ -1,26 +1,29 @@
 // Libraries
 require('dotenv').config();
-const debug = require('debug')('dirt:research:indexat');
+const Web3 = require('web3');
+const debug = require('debug')('dirt:research:quick');
 
 // Dirt Libraries
 const {Dirt} = require('@dirt/lib');
+const provider = require('./provider');
 
 // Configuration
-const {ROOT_ADDRESS: rootAddress, INFURA_ENDPOINT: endpoint} = process.env;
+const {ROOT_ADDRESS: rootAddress} = process.env;
+const instance = new Web3(provider);
 
 // Dirt client configuration
 const dirtConfiguration = {
   rootAddress,
   trace: false,
   web3: {
-    endpoint,
+    instance,
   },
 };
 
-process.on('exit', () => console.timeEnd('indexat')); // eslint-disable-line
+process.on('exit', () => console.timeEnd('quick')); // eslint-disable-line
 
 const exec = async () => {
-  console.time('indexat'); // eslint-disable-line
+  console.time('quick'); // eslint-disable-line
 
   debug(`Creating the Dirt client`);
   const client = await Dirt.create(dirtConfiguration);

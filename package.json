@@ -4,8 +4,8 @@
   "main": "server/index.js",
   "scripts": {
     "lint": "eslint .",
-    "research:enum": "DEBUG=dirt:research:* node research/enum.js",
-    "research:indexat": "DEBUG=dirt:research:* node research/indexat.js",
+    "research:enum": "DEBUG=dirt:research:enum node research/enum.js",
+    "research:quick": "DEBUG=dirt:research:quick node research/quick.js",
     "start": "node .",
     "test": "NODE_ENV=test jest --runInBand ./test"
   },
@@ -19,7 +19,8 @@
     "dotenv": "6.0.0",
     "express": "4.16.3",
     "helmet": "3.13.0",
-    "morgan": "1.9.0"
+    "morgan": "1.9.0",
+    "web3": "0.20.6"
   },
   "devDependencies": {
     "eslint": "5.4.0",
