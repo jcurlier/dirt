@@ -4,9 +4,19 @@ const cors = require('cors');
 const morgan = require('morgan');
 const compression = require('compression');
 const helmet = require('helmet');
+const apicache = require('apicache');
 
 // Dirt
 const registryService = require('./services/registry.js');
+
+const cache = apicache
+  .options({
+    enabled: true,
+    statusCodes: {
+      include: [200],
+    },
+  })
+  .middleware;
 
 const started = Date.now();
 
@@ -29,12 +39,12 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/registries', async (req, res) => {
+app.get('/registries', cache('1 hour'), async (req, res) => {
   const registries = await registryService.getRegistries();
   res.json(registries);
 });
 
-app.get('/registries/:registry_address', async (req, res) => {
+app.get('/registries/:registry_address', cache('10 minutes'), async (req, res) => {
   const {registry_address: registryAddress} = req.params;
   const registry = await registryService.getRegistryItems(registryAddress);
   res.json(registry);

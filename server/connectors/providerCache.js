@@ -15,7 +15,7 @@ function get(payload) {
   const key = `${method}-${JSON.stringify(params)}`;
 
   if (cache[key]) {
-    debug(`Using cache for ${key}`);
+    debug(`Using cached (memory-cache) for ${key}`);
     return {
       jsonrpc: '2.0',
       id,
@@ -35,7 +35,7 @@ function set(payload, response) {
   const key = `${method}-${JSON.stringify(params)}`;
 
   if (method === 'net_version' || method === 'eth_getCode') {
-    debug(`Caching ${key}`);
+    debug(`Adding cache entry ${key}`);
     cache[key] = result;
   }
 }
