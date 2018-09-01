@@ -10,9 +10,15 @@ See [research](./research)
 
 ### Express
 
-This is an implementation of an Express server to retrieve registries and items.
+This is an implementation of an Express server to retrieve registries and items using the Dirt client.
 
 See [express](./express)
+
+### Loopback
+
+This is an implementation of a Loopback server to retrieve registries and items using a postgreSQL database.
+
+See [loopback](./loopback)
 
 ## Starting the application(s)
 
@@ -43,6 +49,7 @@ ID | Description
 2 | The HTTP provider is [deprecated](https://web3js.readthedocs.io/en/1.0/web3.html#value), as it won’t work for subscriptions.
 3 | Productionize (Error Handling, Logging, etc.)
 4 | Seems `eth_getCode` is already cache
+5 | Should `stake` not be a sting
 
 ### Closed
 

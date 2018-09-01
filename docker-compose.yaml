@@ -1,11 +1,36 @@
 version: '3.7'
 services:
+  database:
+    build: ./database
+    ports:
+      - "5432:5432"
   express:
     build: ./express
     environment:
       - NODE_ENV=production
       - PORT=3001
-      - ROOT_ADDRESS=0xDb1E8F93854cbC9272dA69544Fc62E5d4511c7D1
+      - ROOT_ADDRESS
       - INFURA_ENDPOINT
     ports:
       - 3001:3001
+  loopback:
+    build: ./loopback
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgres://dirt:password@database:5432/dirt?ssl=false
+      - PORT=3002
+      - ROOT_ADDRESS
+      - INFURA_ENDPOINT
+    ports:
+      - 3002:3002
+    depends_on:
+      - database
+    volumes:
+      - ./tools/scripts:/usr/src/app/scripts
+    command:
+      - /bin/sh
+      - -c
+      - |
+        ./scripts/wait-for-it.sh -s -t 30 database:5432
+        npm run database:create
+        npm run start

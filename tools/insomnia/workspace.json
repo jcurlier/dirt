@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2018-09-01T03:53:42.397Z",
+	"__export_date": "2018-09-01T05:42:18.806Z",
 	"__export_source": "insomnia.desktop.app:v6.0.2",
 	"resources": [
 		{
@@ -20,7 +20,7 @@
 			"data": {},
 			"isPrivate": false,
 			"metaSortKey": 1535608973118,
-			"modified": 1535609010390,
+			"modified": 1535779959175,
 			"name": "New Environment",
 			"parentId": "wrk_d50fbe59d2484d5ebd0be31216423ce5",
 			"_type": "environment"
@@ -46,16 +46,78 @@
 			"_type": "request_group"
 		},
 		{
+			"_id": "fld_f890ed5074b5437b842b502ecdd6321a",
+			"created": 1535780062029,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1535780062029,
+			"modified": 1535780062029,
+			"name": "Loopback",
+			"parentId": "wrk_d50fbe59d2484d5ebd0be31216423ce5",
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_a1e1469d9f5c42489b59e940a998dce2",
+			"authentication": {},
+			"body": {},
+			"created": 1535780317169,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1535776965418.5,
+			"method": "GET",
+			"modified": 1535780405250,
+			"name": "Get items for Crypto addresses",
+			"parameters": [],
+			"parentId": "wrk_d50fbe59d2484d5ebd0be31216423ce5",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ loopback.url }}/registries/{% response 'body', 'req_16d91fe2796b42bea3b57d64443e433b', '$[0].address' %}/items",
+			"_type": "request"
+		},
+		{
+			"_id": "req_89bf914af691472c8f89d11738084e3d",
+			"authentication": {},
+			"body": {},
+			"created": 1535780333715,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1535775417113.25,
+			"method": "GET",
+			"modified": 1535780413469,
+			"name": "Get items for test",
+			"parameters": [],
+			"parentId": "wrk_d50fbe59d2484d5ebd0be31216423ce5",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ loopback.url }}/registries/{% response 'body', 'req_16d91fe2796b42bea3b57d64443e433b', '$[1].address' %}/items",
+			"_type": "request"
+		},
+		{
 			"_id": "env_e4852d539d644513b48ea2a86cf07f62",
 			"color": null,
 			"created": 1535609012443,
 			"data": {
-				"url": "http://localhost:3001"
+				"express": {
+					"url": "http://localhost:3001"
+				},
+				"loopback": {
+					"url": "http://localhost:3002"
+				}
 			},
 			"isPrivate": false,
 			"metaSortKey": 1535609012443,
-			"modified": 1535609172605,
-			"name": "Local Dev",
+			"modified": 1535780296633,
+			"name": "Local",
 			"parentId": "env_c5dd6830875d41e18e06a0d4a19fdc2c",
 			"_type": "environment"
 		},
@@ -67,9 +129,9 @@
 			"description": "",
 			"headers": [],
 			"isPrivate": false,
-			"metaSortKey": -1535611850440,
+			"metaSortKey": -1535496196797.5,
 			"method": "GET",
-			"modified": 1535773981611,
+			"modified": 1535780299902,
 			"name": "GET registries",
 			"parameters": [],
 			"parentId": "fld_5c8536a44de142f5a0f49f8276f8fcb5",
@@ -79,7 +141,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ url  }}/registries",
+			"url": "{{ express.url }}/registries",
 			"_type": "request"
 		},
 		{
@@ -90,9 +152,9 @@
 			"description": "",
 			"headers": [],
 			"isPrivate": false,
-			"metaSortKey": -1535611850390,
+			"metaSortKey": -1535496196747.5,
 			"method": "GET",
-			"modified": 1535773984321,
+			"modified": 1535780151339,
 			"name": "Get items for Crypto addresses",
 			"parameters": [],
 			"parentId": "fld_5c8536a44de142f5a0f49f8276f8fcb5",
@@ -102,7 +164,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ url  }}/registries/{% response 'body', 'req_32c026ee261840d69e63a9e84bab93e6', '$[0].address' %}",
+			"url": "{{ express.url }}/registries/{% response 'body', 'req_32c026ee261840d69e63a9e84bab93e6', '$[0].address' %}",
 			"_type": "request"
 		},
 		{
@@ -113,9 +175,9 @@
 			"description": "",
 			"headers": [],
 			"isPrivate": false,
-			"metaSortKey": -1535611850340,
+			"metaSortKey": -1535496196697.5,
 			"method": "GET",
-			"modified": 1535773986693,
+			"modified": 1535780164046,
 			"name": "Get items for test",
 			"parameters": [],
 			"parentId": "fld_5c8536a44de142f5a0f49f8276f8fcb5",
@@ -125,7 +187,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ url  }}/registries/{% response 'body', 'req_32c026ee261840d69e63a9e84bab93e6', '$[1].address' %}",
+			"url": "{{ express.url }}/registries/{% response 'body', 'req_32c026ee261840d69e63a9e84bab93e6', '$[1].address' %}",
 			"_type": "request"
 		},
 		{
@@ -136,9 +198,9 @@
 			"description": "",
 			"headers": [],
 			"isPrivate": false,
-			"metaSortKey": -1535611850490,
+			"metaSortKey": -1535496196847.5,
 			"method": "GET",
-			"modified": 1535773871316,
+			"modified": 1535780144973,
 			"name": "Status",
 			"parameters": [],
 			"parentId": "fld_5c8536a44de142f5a0f49f8276f8fcb5",
@@ -148,7 +210,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ url  }}",
+			"url": "{{ express.url }}",
 			"_type": "request"
 		},
 		{
@@ -167,7 +229,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1535496196691.25,
 			"method": "GET",
-			"modified": 1535773989838,
+			"modified": 1535780168410,
 			"name": "GET registries - No api cache",
 			"parameters": [],
 			"parentId": "fld_5c8536a44de142f5a0f49f8276f8fcb5",
@@ -177,7 +239,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ url  }}/registries",
+			"url": "{{ express.url }}/registries",
 			"_type": "request"
 		},
 		{
@@ -196,7 +258,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1535438369866.875,
 			"method": "GET",
-			"modified": 1535773993681,
+			"modified": 1535780172364,
 			"name": "Get items for Crypto addresses - No api cache",
 			"parameters": [],
 			"parentId": "fld_5c8536a44de142f5a0f49f8276f8fcb5",
@@ -206,7 +268,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ url  }}/registries/{% response 'body', 'req_32c026ee261840d69e63a9e84bab93e6', '$[0].address' %}",
+			"url": "{{ express.url }}/registries/{% response 'body', 'req_32c026ee261840d69e63a9e84bab93e6', '$[0].address' %}",
 			"_type": "request"
 		},
 		{
@@ -225,7 +287,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1535380543042.5,
 			"method": "GET",
-			"modified": 1535774003758,
+			"modified": 1535780183195,
 			"name": "Get items for test - No api cache",
 			"parameters": [],
 			"parentId": "fld_5c8536a44de142f5a0f49f8276f8fcb5",
@@ -235,7 +297,53 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ url  }}/registries/{% response 'body', 'req_32c026ee261840d69e63a9e84bab93e6', '$[1].address' %}",
+			"url": "{{ express.url }}/registries/{% response 'body', 'req_32c026ee261840d69e63a9e84bab93e6', '$[1].address' %}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_1a3327415470497dba8fd43ca96c898f",
+			"authentication": {},
+			"body": {},
+			"created": 1535780241817,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1535496196822.5,
+			"method": "GET",
+			"modified": 1535780296984,
+			"name": "Status",
+			"parameters": [],
+			"parentId": "fld_f890ed5074b5437b842b502ecdd6321a",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ loopback.url }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_16d91fe2796b42bea3b57d64443e433b",
+			"authentication": {},
+			"body": {},
+			"created": 1535780301152,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1535496196772.5,
+			"method": "GET",
+			"modified": 1535780314796,
+			"name": "GET registries",
+			"parameters": [],
+			"parentId": "fld_f890ed5074b5437b842b502ecdd6321a",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ loopback.url }}/registries",
 			"_type": "request"
 		}
 	]
