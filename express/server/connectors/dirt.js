@@ -60,8 +60,7 @@ async function getRegistries() {
     registryDescriptors.push({
       name,
       address,
-      vote_style: voteStyle,
-      timestamp: parseInt(timestamp, 10),
+      votestyle: voteStyle,
       date: new Date(timestamp * 1000).toUTCString(),
     });
   }
@@ -97,8 +96,7 @@ async function getRegistryItems(registryAddress) {
       key,
       owner,
       value,
-      blockHistory,
-      timestamp: parseInt(timestamp, 10),
+      blockhistory: blockHistory,
       date: new Date(timestamp * 1000).toUTCString(),
       stake: stake.toString(),
     });

@@ -27,9 +27,8 @@ describe('GET /registry items', () => {
     expect(response.body[0].key).toEqual('OmiseGO');
     expect(response.body[0].owner).toEqual('0x453bbf1626c4bd25d6081aed93042208ddc1c1e3');
     expect(response.body[0].value).toEqual('0xd26114cd6EE289AccF82350c8d8487fedB8A0C07');
-    expect(response.body[0].blockHistory).toHaveLength(1);
-    expect(response.body[0].blockHistory[0]).toBe(3418608);
-    expect(response.body[0].timestamp).toBe(1528760955);
+    expect(response.body[0].blockhistory).toHaveLength(1);
+    expect(response.body[0].blockhistory[0]).toBe(3418608);
     expect(response.body[0].date).toEqual('Mon, 11 Jun 2018 23:49:15 GMT');
     expect(response.body[0].stake).toEqual('0.1');
   });
