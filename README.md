@@ -59,3 +59,6 @@ ID | Description
 2 | Is the `name` for the `registry` returning the `address`? `fixed in a new release`
 3 | How to know which type a registry is, currently assuming `StackableRegistry`? *Use `ChallengeableRegistry`*
 
+## Notes
+
+- To make it easier to read the log, removed the `console.log` statement from `StaticContractProvider.prototype.get` inside `@dirt/lib`.
