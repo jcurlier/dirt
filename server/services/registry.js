@@ -3,7 +3,10 @@
  * @module
  */
 
-const dirt = require('./dirt.js');
+ // Libraries
+const debug = require('debug')('dirt:api:services:registry');
+
+const dirt = require('../connectors/dirt.js');
 
 /**
  * Get the registries.
@@ -11,6 +14,7 @@ const dirt = require('./dirt.js');
  * @returns {[registry]} - List of registries
  */
 async function getRegistries() {
+  debug('Getting registries');
   return dirt.getRegistries();
 }
 
@@ -21,6 +25,7 @@ async function getRegistries() {
  * @returns {[registry]} List of items
  */
 async function getRegistryItems(registryAddress) {
+  debug('Getting registry items');
   return dirt.getRegistryItems(registryAddress);
 }
 

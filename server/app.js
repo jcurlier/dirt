@@ -6,14 +6,14 @@ const compression = require('compression');
 const helmet = require('helmet');
 
 // Dirt
-const registryService = require('./registry.js');
+const registryService = require('./services/registry.js');
 
 const started = Date.now();
 
 // Middlewares
 const app = express();
 if (process.env.NODE_ENV !== 'test') {
-  app.use(morgan('common'));
+  app.use(morgan('tiny'));
 }
 app.use(helmet());
 app.use(cors());

@@ -3,12 +3,18 @@
  * @module
  */
 
+// Libraries
+const Web3 = require('web3');
+
 // Dirt Libraries
 const {Dirt} = require('@dirt/lib');
+const provider = require('./provider');
 
 // Configuration
-const {ROOT_ADDRESS: rootAddress, INFURA_ENDPOINT: endpoint} = process.env;
+const {ROOT_ADDRESS: rootAddress} = process.env;
+const instance = new Web3(provider);
 
+// Constants
 const REGISTRY_DEFAULT_TYPE = 'ChallengeableRegistry';
 
 // Dirt client configuration
@@ -16,7 +22,7 @@ const dirtConfiguration = {
   rootAddress,
   trace: false,
   web3: {
-    endpoint,
+    instance,
   },
 };
 

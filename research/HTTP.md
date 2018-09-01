@@ -72,7 +72,7 @@ Only one item: `Registry:0xc287b15ba2147d86a98fcbbf13afc874beff3d9e Item:OmiseGO
 Name | Description
 ---- | ----
 [net_version](https://infura.io/docs/api/get/net_version) | Returns the current network id.
-[eth_getCode](https://infura.io/docs/api/post/eth_call) | Executes a new message call immediately without creating a transaction on the block chain.
+[eth_call](https://infura.io/docs/api/post/eth_call) | Executes a new message call immediately without creating a transaction on the block chain.
 [eth_getCode](https://infura.io/docs/api/get/eth_getCode) | Returns code at a given address.
 
 ## Configuration

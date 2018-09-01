@@ -6,7 +6,7 @@
     "lint": "eslint .",
     "research:enum": "DEBUG=dirt:research:enum node research/enum.js",
     "research:quick": "DEBUG=dirt:research:quick node research/quick.js",
-    "start": "node .",
+    "start": "DEBUG=dirt:api:connectors:providerCache node .",
     "test": "NODE_ENV=test jest --runInBand ./test"
   },
   "dependencies": {

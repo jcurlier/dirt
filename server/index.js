@@ -2,7 +2,7 @@
 require('dotenv').config();
 
 // Dirt
-const dirtConnector = require('./dirt.js');
+const dirtConnector = require('./connectors/dirt.js');
 const app = require('./app');
 
 const port = process.env.PORT || 3001;
