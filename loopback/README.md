@@ -15,7 +15,7 @@ Variable | Description
 ---- | ----
 NODE_ENV | Node environment (for example `development`, `test` or `production`)
 PORT | For example, `3002` (default to `3002`)
-DATABASE_URL : for example, postgres://dirt:password@127.0.0.1:5432/dirt
+DATABASE_URL | for example, postgres://dirt:password@127.0.0.1:5432/dirt
 
 3. Install the packages
 
