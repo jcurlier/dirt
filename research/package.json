@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "scripts": {
     "lint": "eslint .",
-    "enum": "DEBUG=dirt:research:enum node enum.js",
-    "quick": "DEBUG=dirt:research:quick node quick.js"
+    "enum": "DEBUG=dirt:research:enum node src/enum.js",
+    "quick": "DEBUG=dirt:research:quick node src/quick.js"
   },
   "dependencies": {
     "@dirt/contracts": "file:./lib/@dirt/contracts",
