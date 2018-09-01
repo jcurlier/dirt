@@ -1,0 +1,40 @@
+{
+  "strict": true,
+  "name": "item",
+  "plural": "items",
+  "properties": {
+    "address": {
+      "id": true,
+      "required": true,
+      "type": "string"
+    },
+    "key": {
+      "required": true,
+      "type": "string"
+    },
+    "value": {
+      "required": true,
+      "type": "string"
+    },
+    "owner": {
+      "required": true,
+      "type": "string"
+    },
+    "blockHistory": {
+      "type": "object"
+    },
+    "date": {
+      "required": true,
+      "type": "date"
+    },
+    "stake": {
+      "required": true,
+      "type": "string"
+    }    
+  },
+  "relations": {},
+  "methods": {},
+  "acls": [],
+  "mixins": {},
+  "options": {}
+}

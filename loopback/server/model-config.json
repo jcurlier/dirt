@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/server/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/server/mixins",
+      "./mixins",
+      "../node_modules/loopback-setup-remote-methods-mixin"
+    ]
+  },
+  "registry": {
+    "dataSource": "appDs",
+    "public": true
+  },
+  "item": {
+    "dataSource": "appDs",
+    "public": false
+  }
+}

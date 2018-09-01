@@ -1,0 +1,42 @@
+{
+  "strict": true,
+  "name": "registry",
+  "plural": "registries",
+  "properties": {
+    "address": {
+      "id": true,
+      "required": true,
+      "type": "string"
+    },
+    "name": {
+      "required": true,
+      "type": "string"
+    },
+    "vote_style": {
+      "required": true,
+      "type": "string"
+    },
+    "date": {
+      "required": true,
+      "type": "date"
+    }
+  },
+  "relations": {
+    "items": {
+      "model": "item",
+      "type": "hasMany",
+      "foreignKey": "registryAddress"
+    }
+  },
+  "methods": {},
+  "acls": [],
+  "mixins": {
+    "SetupRemoteMethods": {
+      "disableAllExcept": [
+        "find",
+        "prototype.__get__items"
+      ]
+    }
+  },
+  "options": {}
+}
