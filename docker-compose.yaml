@@ -4,6 +4,23 @@ services:
     build: ./database
     ports:
       - "5432:5432"
+  ingestor:
+    build: ./ingestor
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgres://dirt:password@database:5432/dirt?ssl=false
+      - ROOT_ADDRESS
+      - INFURA_ENDPOINT
+    depends_on:
+      - database
+    volumes:
+      - ./tools/scripts:/usr/src/app/scripts
+    command:
+      - /bin/sh
+      - -c
+      - |
+        ./scripts/wait-for-it.sh -s -t 30 database:5432
+        npm start
   express:
     build: ./express
     environment:
@@ -32,5 +49,4 @@ services:
       - -c
       - |
         ./scripts/wait-for-it.sh -s -t 30 database:5432
-        npm run database:create
-        npm run start
+        npm start

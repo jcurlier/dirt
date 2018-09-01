@@ -1,0 +1,32 @@
+{
+    "include": [
+        "src/**/*.ts",
+        "node_modules/web3-typescript-typings/index.d.ts"
+    ],
+    "compilerOptions": {
+        "outDir": "./dist",
+        "allowSyntheticDefaultImports": true,
+        "target": "es5",
+        "downlevelIteration": true,
+        "importHelpers": true,
+        "sourceMap": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "jsx": "react",
+        "allowJs": false,
+        "checkJs": false,
+        "declaration": true,
+        "lib": [
+            "dom",
+            "es2015",
+            "es2016",
+            "es2017",
+            "esnext"
+        ],
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "skipLibCheck": true,
+        "strictNullChecks": false,
+        "suppressImplicitAnyIndexErrors": true
+    }
+}

@@ -2,6 +2,9 @@
   "strict": true,
   "name": "registry",
   "plural": "registries",
+  "postgresql": {
+    "table": "registries"
+  },
   "properties": {
     "address": {
       "id": true,
@@ -12,7 +15,7 @@
       "required": true,
       "type": "string"
     },
-    "vote_style": {
+    "votestyle": {
       "required": true,
       "type": "string"
     },
@@ -25,7 +28,7 @@
     "items": {
       "model": "item",
       "type": "hasMany",
-      "foreignKey": "registryAddress"
+      "foreignKey": "registryaddress"
     }
   },
   "methods": {},

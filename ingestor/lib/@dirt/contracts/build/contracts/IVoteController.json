@@ -1,0 +1,1980 @@
+{
+  "contractName": "IVoteController",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getStyleName",
+      "outputs": [
+        {
+          "name": "_style",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_voteId",
+          "type": "uint256"
+        }
+      ],
+      "name": "forceExpire",
+      "outputs": [
+        {
+          "name": "_success",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_voteId",
+          "type": "uint256"
+        }
+      ],
+      "name": "voteExists",
+      "outputs": [
+        {
+          "name": "_exists",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_voteId",
+          "type": "uint256"
+        }
+      ],
+      "name": "voteActive",
+      "outputs": [
+        {
+          "name": "_active",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "components": [
+                {
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "name": "value",
+                  "type": "string"
+                },
+                {
+                  "name": "stake",
+                  "type": "uint256"
+                }
+              ],
+              "name": "incumbent",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "name": "value",
+                  "type": "string"
+                },
+                {
+                  "name": "stake",
+                  "type": "uint256"
+                }
+              ],
+              "name": "challenger",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "name": "style",
+                  "type": "string"
+                },
+                {
+                  "name": "challengePenalty",
+                  "type": "uint256"
+                },
+                {
+                  "name": "votePenalty",
+                  "type": "uint256"
+                },
+                {
+                  "name": "challengeLength",
+                  "type": "uint256"
+                },
+                {
+                  "name": "challengeDistribution",
+                  "type": "uint256"
+                },
+                {
+                  "name": "minVoteStake",
+                  "type": "uint256"
+                },
+                {
+                  "name": "minVoteIncrementalStake",
+                  "type": "uint256"
+                }
+              ],
+              "name": "configuration",
+              "type": "tuple"
+            }
+          ],
+          "name": "_voteDescriptor",
+          "type": "tuple"
+        }
+      ],
+      "name": "beginVote",
+      "outputs": [
+        {
+          "name": "_success",
+          "type": "bool"
+        },
+        {
+          "name": "_voteId",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.23;\n\npragma experimental ABIEncoderV2;\n\ncontract IVoteController { \n    enum Candidate {\n        None,\n        Incumbent,\n        Challenger\n    }\n\n    \n    struct VoteConfiguration  {\n        string style;\n        uint challengePenalty;\n        uint votePenalty;\n        uint challengeLength; \n        uint challengeDistribution;\n        uint256 minVoteStake;\n        uint256 minVoteIncrementalStake;\n    }\n\n    struct VoteCandidateDescriptor { \n        address owner;\n        string value;\n        uint256 stake;\n    }\n\n    struct VoteDescriptor { \n        string key; \n\n        VoteCandidateDescriptor incumbent;\n        VoteCandidateDescriptor challenger;\n\n        VoteConfiguration configuration;\n    }\n\n    function getStyleName() public pure returns (string _style);\n\n    // TODO: REMOVE THIS\n    function forceExpire(uint _voteId) public returns (bool _success);    \n    \n    function voteExists(uint _voteId) public view returns (bool _exists);\n    function voteActive(uint _voteId) public view returns (bool _active);\n    function beginVote(VoteDescriptor memory _voteDescriptor) public returns (bool _success, uint _voteId);\n}",
+  "sourcePath": "/Users/iamwil/projects/freelance/entity_protocol/Contracts/packages/contracts/contracts/interfaces/IVoteController.sol",
+  "ast": {
+    "absolutePath": "/Users/iamwil/projects/freelance/entity_protocol/Contracts/packages/contracts/contracts/interfaces/IVoteController.sol",
+    "exportedSymbols": {
+      "IVoteController": [
+        135
+      ]
+    },
+    "id": 136,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 63,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".23"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:3"
+      },
+      {
+        "id": 64,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "26:33:3"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 135,
+        "linearizedBaseContracts": [
+          135
+        ],
+        "name": "IVoteController",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "IVoteController.Candidate",
+            "id": 68,
+            "members": [
+              {
+                "id": 65,
+                "name": "None",
+                "nodeType": "EnumValue",
+                "src": "118:4:3"
+              },
+              {
+                "id": 66,
+                "name": "Incumbent",
+                "nodeType": "EnumValue",
+                "src": "132:9:3"
+              },
+              {
+                "id": 67,
+                "name": "Challenger",
+                "nodeType": "EnumValue",
+                "src": "151:10:3"
+              }
+            ],
+            "name": "Candidate",
+            "nodeType": "EnumDefinition",
+            "src": "93:74:3"
+          },
+          {
+            "canonicalName": "IVoteController.VoteConfiguration",
+            "id": 83,
+            "members": [
+              {
+                "constant": false,
+                "id": 70,
+                "name": "style",
+                "nodeType": "VariableDeclaration",
+                "scope": 83,
+                "src": "214:12:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 69,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "214:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 72,
+                "name": "challengePenalty",
+                "nodeType": "VariableDeclaration",
+                "scope": 83,
+                "src": "236:21:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 71,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "236:4:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 74,
+                "name": "votePenalty",
+                "nodeType": "VariableDeclaration",
+                "scope": 83,
+                "src": "267:16:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 73,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "267:4:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 76,
+                "name": "challengeLength",
+                "nodeType": "VariableDeclaration",
+                "scope": 83,
+                "src": "293:20:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 75,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "293:4:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 78,
+                "name": "challengeDistribution",
+                "nodeType": "VariableDeclaration",
+                "scope": 83,
+                "src": "324:26:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 77,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "324:4:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 80,
+                "name": "minVoteStake",
+                "nodeType": "VariableDeclaration",
+                "scope": 83,
+                "src": "360:20:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 79,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "360:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 82,
+                "name": "minVoteIncrementalStake",
+                "nodeType": "VariableDeclaration",
+                "scope": 83,
+                "src": "390:31:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 81,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "390:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "VoteConfiguration",
+            "nodeType": "StructDefinition",
+            "scope": 135,
+            "src": "178:250:3",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IVoteController.VoteCandidateDescriptor",
+            "id": 90,
+            "members": [
+              {
+                "constant": false,
+                "id": 85,
+                "name": "owner",
+                "nodeType": "VariableDeclaration",
+                "scope": 90,
+                "src": "476:13:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 84,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "476:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 87,
+                "name": "value",
+                "nodeType": "VariableDeclaration",
+                "scope": 90,
+                "src": "499:12:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 86,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "499:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 89,
+                "name": "stake",
+                "nodeType": "VariableDeclaration",
+                "scope": 90,
+                "src": "521:13:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 88,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "521:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "VoteCandidateDescriptor",
+            "nodeType": "StructDefinition",
+            "scope": 135,
+            "src": "434:107:3",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IVoteController.VoteDescriptor",
+            "id": 99,
+            "members": [
+              {
+                "constant": false,
+                "id": 92,
+                "name": "key",
+                "nodeType": "VariableDeclaration",
+                "scope": 99,
+                "src": "580:10:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 91,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "580:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 94,
+                "name": "incumbent",
+                "nodeType": "VariableDeclaration",
+                "scope": 99,
+                "src": "602:33:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_VoteCandidateDescriptor_$90_storage_ptr",
+                  "typeString": "struct IVoteController.VoteCandidateDescriptor"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 93,
+                  "name": "VoteCandidateDescriptor",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 90,
+                  "src": "602:23:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_VoteCandidateDescriptor_$90_storage_ptr",
+                    "typeString": "struct IVoteController.VoteCandidateDescriptor"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 96,
+                "name": "challenger",
+                "nodeType": "VariableDeclaration",
+                "scope": 99,
+                "src": "645:34:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_VoteCandidateDescriptor_$90_storage_ptr",
+                  "typeString": "struct IVoteController.VoteCandidateDescriptor"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 95,
+                  "name": "VoteCandidateDescriptor",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 90,
+                  "src": "645:23:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_VoteCandidateDescriptor_$90_storage_ptr",
+                    "typeString": "struct IVoteController.VoteCandidateDescriptor"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 98,
+                "name": "configuration",
+                "nodeType": "VariableDeclaration",
+                "scope": 99,
+                "src": "690:31:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_VoteConfiguration_$83_storage_ptr",
+                  "typeString": "struct IVoteController.VoteConfiguration"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 97,
+                  "name": "VoteConfiguration",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 83,
+                  "src": "690:17:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_VoteConfiguration_$83_storage_ptr",
+                    "typeString": "struct IVoteController.VoteConfiguration"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "VoteDescriptor",
+            "nodeType": "StructDefinition",
+            "scope": 135,
+            "src": "547:181:3",
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 104,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getStyleName",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 100,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "755:2:3"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 103,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 102,
+                  "name": "_style",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 104,
+                  "src": "779:13:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 101,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "779:6:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "778:15:3"
+            },
+            "scope": 135,
+            "src": "734:60:3",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 111,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "forceExpire",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 107,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 106,
+                  "name": "_voteId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 111,
+                  "src": "846:12:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 105,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "846:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "845:14:3"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 110,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 109,
+                  "name": "_success",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 111,
+                  "src": "876:13:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 108,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "876:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "875:15:3"
+            },
+            "scope": 135,
+            "src": "825:66:3",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 118,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "voteExists",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 114,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 113,
+                  "name": "_voteId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 118,
+                  "src": "925:12:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 112,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "925:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "924:14:3"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 117,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 116,
+                  "name": "_exists",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 118,
+                  "src": "960:12:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 115,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "960:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "959:14:3"
+            },
+            "scope": 135,
+            "src": "905:69:3",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 125,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "voteActive",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 121,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 120,
+                  "name": "_voteId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 125,
+                  "src": "999:12:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 119,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "999:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "998:14:3"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 124,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 123,
+                  "name": "_active",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 125,
+                  "src": "1034:12:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 122,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1034:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1033:14:3"
+            },
+            "scope": 135,
+            "src": "979:69:3",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 134,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "beginVote",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 128,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 127,
+                  "name": "_voteDescriptor",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 134,
+                  "src": "1072:37:3",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_VoteDescriptor_$99_memory_ptr",
+                    "typeString": "struct IVoteController.VoteDescriptor"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 126,
+                    "name": "VoteDescriptor",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 99,
+                    "src": "1072:14:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_VoteDescriptor_$99_storage_ptr",
+                      "typeString": "struct IVoteController.VoteDescriptor"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1071:39:3"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 133,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 130,
+                  "name": "_success",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 134,
+                  "src": "1127:13:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 129,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1127:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 132,
+                  "name": "_voteId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 134,
+                  "src": "1142:12:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 131,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1142:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1126:29:3"
+            },
+            "scope": 135,
+            "src": "1053:103:3",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 136,
+        "src": "61:1097:3"
+      }
+    ],
+    "src": "0:1158:3"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/iamwil/projects/freelance/entity_protocol/Contracts/packages/contracts/contracts/interfaces/IVoteController.sol",
+    "exportedSymbols": {
+      "IVoteController": [
+        135
+      ]
+    },
+    "id": 136,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 63,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".23"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:3"
+      },
+      {
+        "id": 64,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "26:33:3"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 135,
+        "linearizedBaseContracts": [
+          135
+        ],
+        "name": "IVoteController",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "IVoteController.Candidate",
+            "id": 68,
+            "members": [
+              {
+                "id": 65,
+                "name": "None",
+                "nodeType": "EnumValue",
+                "src": "118:4:3"
+              },
+              {
+                "id": 66,
+                "name": "Incumbent",
+                "nodeType": "EnumValue",
+                "src": "132:9:3"
+              },
+              {
+                "id": 67,
+                "name": "Challenger",
+                "nodeType": "EnumValue",
+                "src": "151:10:3"
+              }
+            ],
+            "name": "Candidate",
+            "nodeType": "EnumDefinition",
+            "src": "93:74:3"
+          },
+          {
+            "canonicalName": "IVoteController.VoteConfiguration",
+            "id": 83,
+            "members": [
+              {
+                "constant": false,
+                "id": 70,
+                "name": "style",
+                "nodeType": "VariableDeclaration",
+                "scope": 83,
+                "src": "214:12:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 69,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "214:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 72,
+                "name": "challengePenalty",
+                "nodeType": "VariableDeclaration",
+                "scope": 83,
+                "src": "236:21:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 71,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "236:4:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 74,
+                "name": "votePenalty",
+                "nodeType": "VariableDeclaration",
+                "scope": 83,
+                "src": "267:16:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 73,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "267:4:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 76,
+                "name": "challengeLength",
+                "nodeType": "VariableDeclaration",
+                "scope": 83,
+                "src": "293:20:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 75,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "293:4:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 78,
+                "name": "challengeDistribution",
+                "nodeType": "VariableDeclaration",
+                "scope": 83,
+                "src": "324:26:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 77,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "324:4:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 80,
+                "name": "minVoteStake",
+                "nodeType": "VariableDeclaration",
+                "scope": 83,
+                "src": "360:20:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 79,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "360:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 82,
+                "name": "minVoteIncrementalStake",
+                "nodeType": "VariableDeclaration",
+                "scope": 83,
+                "src": "390:31:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 81,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "390:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "VoteConfiguration",
+            "nodeType": "StructDefinition",
+            "scope": 135,
+            "src": "178:250:3",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IVoteController.VoteCandidateDescriptor",
+            "id": 90,
+            "members": [
+              {
+                "constant": false,
+                "id": 85,
+                "name": "owner",
+                "nodeType": "VariableDeclaration",
+                "scope": 90,
+                "src": "476:13:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 84,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "476:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 87,
+                "name": "value",
+                "nodeType": "VariableDeclaration",
+                "scope": 90,
+                "src": "499:12:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 86,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "499:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 89,
+                "name": "stake",
+                "nodeType": "VariableDeclaration",
+                "scope": 90,
+                "src": "521:13:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 88,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "521:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "VoteCandidateDescriptor",
+            "nodeType": "StructDefinition",
+            "scope": 135,
+            "src": "434:107:3",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IVoteController.VoteDescriptor",
+            "id": 99,
+            "members": [
+              {
+                "constant": false,
+                "id": 92,
+                "name": "key",
+                "nodeType": "VariableDeclaration",
+                "scope": 99,
+                "src": "580:10:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 91,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "580:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 94,
+                "name": "incumbent",
+                "nodeType": "VariableDeclaration",
+                "scope": 99,
+                "src": "602:33:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_VoteCandidateDescriptor_$90_storage_ptr",
+                  "typeString": "struct IVoteController.VoteCandidateDescriptor"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 93,
+                  "name": "VoteCandidateDescriptor",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 90,
+                  "src": "602:23:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_VoteCandidateDescriptor_$90_storage_ptr",
+                    "typeString": "struct IVoteController.VoteCandidateDescriptor"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 96,
+                "name": "challenger",
+                "nodeType": "VariableDeclaration",
+                "scope": 99,
+                "src": "645:34:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_VoteCandidateDescriptor_$90_storage_ptr",
+                  "typeString": "struct IVoteController.VoteCandidateDescriptor"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 95,
+                  "name": "VoteCandidateDescriptor",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 90,
+                  "src": "645:23:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_VoteCandidateDescriptor_$90_storage_ptr",
+                    "typeString": "struct IVoteController.VoteCandidateDescriptor"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 98,
+                "name": "configuration",
+                "nodeType": "VariableDeclaration",
+                "scope": 99,
+                "src": "690:31:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_VoteConfiguration_$83_storage_ptr",
+                  "typeString": "struct IVoteController.VoteConfiguration"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 97,
+                  "name": "VoteConfiguration",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 83,
+                  "src": "690:17:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_VoteConfiguration_$83_storage_ptr",
+                    "typeString": "struct IVoteController.VoteConfiguration"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "VoteDescriptor",
+            "nodeType": "StructDefinition",
+            "scope": 135,
+            "src": "547:181:3",
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 104,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getStyleName",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 100,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "755:2:3"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 103,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 102,
+                  "name": "_style",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 104,
+                  "src": "779:13:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 101,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "779:6:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "778:15:3"
+            },
+            "scope": 135,
+            "src": "734:60:3",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 111,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "forceExpire",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 107,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 106,
+                  "name": "_voteId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 111,
+                  "src": "846:12:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 105,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "846:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "845:14:3"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 110,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 109,
+                  "name": "_success",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 111,
+                  "src": "876:13:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 108,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "876:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "875:15:3"
+            },
+            "scope": 135,
+            "src": "825:66:3",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 118,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "voteExists",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 114,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 113,
+                  "name": "_voteId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 118,
+                  "src": "925:12:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 112,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "925:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "924:14:3"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 117,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 116,
+                  "name": "_exists",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 118,
+                  "src": "960:12:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 115,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "960:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "959:14:3"
+            },
+            "scope": 135,
+            "src": "905:69:3",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 125,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "voteActive",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 121,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 120,
+                  "name": "_voteId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 125,
+                  "src": "999:12:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 119,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "999:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "998:14:3"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 124,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 123,
+                  "name": "_active",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 125,
+                  "src": "1034:12:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 122,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1034:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1033:14:3"
+            },
+            "scope": 135,
+            "src": "979:69:3",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 134,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "beginVote",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 128,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 127,
+                  "name": "_voteDescriptor",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 134,
+                  "src": "1072:37:3",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_VoteDescriptor_$99_memory_ptr",
+                    "typeString": "struct IVoteController.VoteDescriptor"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 126,
+                    "name": "VoteDescriptor",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 99,
+                    "src": "1072:14:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_VoteDescriptor_$99_storage_ptr",
+                      "typeString": "struct IVoteController.VoteDescriptor"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1071:39:3"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 133,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 130,
+                  "name": "_success",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 134,
+                  "src": "1127:13:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 129,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1127:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 132,
+                  "name": "_voteId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 134,
+                  "src": "1142:12:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 131,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1142:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1126:29:3"
+            },
+            "scope": 135,
+            "src": "1053:103:3",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 136,
+        "src": "61:1097:3"
+      }
+    ],
+    "src": "0:1158:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.23+commit.124ca40d.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-05-22T23:46:40.232Z"
+}

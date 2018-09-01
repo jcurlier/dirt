@@ -2,13 +2,12 @@
   "strict": true,
   "name": "item",
   "plural": "items",
+  "postgresql": {
+    "table": "items"
+  },
   "properties": {
-    "address": {
-      "id": true,
-      "required": true,
-      "type": "string"
-    },
     "key": {
+      "id": true,
       "required": true,
       "type": "string"
     },
@@ -20,8 +19,13 @@
       "required": true,
       "type": "string"
     },
-    "blockHistory": {
-      "type": "object"
+    "blockhistory": {
+      "type": [
+        "number"
+      ],
+      "postgresql": {
+        "dataType": "integer[]"
+      }
     },
     "date": {
       "required": true,

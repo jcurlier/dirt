@@ -1,0 +1,943 @@
+{
+  "contractName": "TrackedRequire",
+  "abi": [],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a72305820495deb0196efd080d455dfc0e8ca38bc79cc0e293857607b757dfc120614ec4f0029",
+  "deployedBytecode": "0x6080604052600080fd00a165627a7a72305820495deb0196efd080d455dfc0e8ca38bc79cc0e293857607b757dfc120614ec4f0029",
+  "sourceMap": "26:358:11:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;26:358:11;;;;;;;",
+  "deployedSourceMap": "26:358:11:-;;;;;",
+  "source": "pragma solidity ^0.4.23;\n\ncontract TrackedRequire { \n\n    function _require(bool state, string message) internal { \n        _requireWithAddress(state, message, msg.sender);\n    }\n\n    function _requireWithAddress(bool state, string message, address sender) internal {\n        // This is just for breakpoints\n        if(!state) {\n            require(state, message);\n        }\n    }\n\n}",
+  "sourcePath": "/Users/iamwil/projects/freelance/entity_protocol/Contracts/packages/contracts/contracts/util/TrackedRequire.sol",
+  "ast": {
+    "absolutePath": "/Users/iamwil/projects/freelance/entity_protocol/Contracts/packages/contracts/contracts/util/TrackedRequire.sol",
+    "exportedSymbols": {
+      "TrackedRequire": [
+        2166
+      ]
+    },
+    "id": 2167,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2131,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".23"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:11"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2166,
+        "linearizedBaseContracts": [
+          2166
+        ],
+        "name": "TrackedRequire",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 2145,
+              "nodeType": "Block",
+              "src": "113:65:11",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 2139,
+                        "name": "state",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2133,
+                        "src": "144:5:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 2140,
+                        "name": "message",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2135,
+                        "src": "151:7:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 2141,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4079,
+                          "src": "160:3:11",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 2142,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "160:10:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 2138,
+                      "name": "_requireWithAddress",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2165,
+                      "src": "124:19:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_bool_$_t_string_memory_ptr_$_t_address_$returns$__$",
+                        "typeString": "function (bool,string memory,address)"
+                      }
+                    },
+                    "id": 2143,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "124:47:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2144,
+                  "nodeType": "ExpressionStatement",
+                  "src": "124:47:11"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2146,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "_require",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2136,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2133,
+                  "name": "state",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2146,
+                  "src": "76:10:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 2132,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "76:4:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2135,
+                  "name": "message",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2146,
+                  "src": "88:14:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2134,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "88:6:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "75:28:11"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 2137,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "113:0:11"
+            },
+            "scope": 2166,
+            "src": "58:120:11",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 2164,
+              "nodeType": "Block",
+              "src": "266:115:11",
+              "statements": [
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "id": 2156,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "!",
+                    "prefix": true,
+                    "src": "319:6:11",
+                    "subExpression": {
+                      "argumentTypes": null,
+                      "id": 2155,
+                      "name": "state",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2148,
+                      "src": "320:5:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 2163,
+                  "nodeType": "IfStatement",
+                  "src": "316:59:11",
+                  "trueBody": {
+                    "id": 2162,
+                    "nodeType": "Block",
+                    "src": "327:48:11",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "id": 2158,
+                              "name": "state",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2148,
+                              "src": "349:5:11",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              }
+                            },
+                            {
+                              "argumentTypes": null,
+                              "id": 2159,
+                              "name": "message",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2150,
+                              "src": "356:7:11",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_string_memory_ptr",
+                                "typeString": "string memory"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              },
+                              {
+                                "typeIdentifier": "t_string_memory_ptr",
+                                "typeString": "string memory"
+                              }
+                            ],
+                            "id": 2157,
+                            "name": "require",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [
+                              4082,
+                              4083
+                            ],
+                            "referencedDeclaration": 4083,
+                            "src": "341:7:11",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                              "typeString": "function (bool,string memory) pure"
+                            }
+                          },
+                          "id": 2160,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "341:23:11",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_tuple$__$",
+                            "typeString": "tuple()"
+                          }
+                        },
+                        "id": 2161,
+                        "nodeType": "ExpressionStatement",
+                        "src": "341:23:11"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2165,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "_requireWithAddress",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2153,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2148,
+                  "name": "state",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2165,
+                  "src": "213:10:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 2147,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "213:4:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2150,
+                  "name": "message",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2165,
+                  "src": "225:14:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2149,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "225:6:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2152,
+                  "name": "sender",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2165,
+                  "src": "241:14:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2151,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "241:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "212:44:11"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 2154,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "266:0:11"
+            },
+            "scope": 2166,
+            "src": "184:197:11",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 2167,
+        "src": "26:358:11"
+      }
+    ],
+    "src": "0:384:11"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/iamwil/projects/freelance/entity_protocol/Contracts/packages/contracts/contracts/util/TrackedRequire.sol",
+    "exportedSymbols": {
+      "TrackedRequire": [
+        2166
+      ]
+    },
+    "id": 2167,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2131,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".23"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:11"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2166,
+        "linearizedBaseContracts": [
+          2166
+        ],
+        "name": "TrackedRequire",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 2145,
+              "nodeType": "Block",
+              "src": "113:65:11",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 2139,
+                        "name": "state",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2133,
+                        "src": "144:5:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 2140,
+                        "name": "message",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2135,
+                        "src": "151:7:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 2141,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4079,
+                          "src": "160:3:11",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 2142,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "160:10:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 2138,
+                      "name": "_requireWithAddress",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2165,
+                      "src": "124:19:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_bool_$_t_string_memory_ptr_$_t_address_$returns$__$",
+                        "typeString": "function (bool,string memory,address)"
+                      }
+                    },
+                    "id": 2143,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "124:47:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2144,
+                  "nodeType": "ExpressionStatement",
+                  "src": "124:47:11"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2146,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "_require",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2136,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2133,
+                  "name": "state",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2146,
+                  "src": "76:10:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 2132,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "76:4:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2135,
+                  "name": "message",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2146,
+                  "src": "88:14:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2134,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "88:6:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "75:28:11"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 2137,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "113:0:11"
+            },
+            "scope": 2166,
+            "src": "58:120:11",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 2164,
+              "nodeType": "Block",
+              "src": "266:115:11",
+              "statements": [
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "id": 2156,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "!",
+                    "prefix": true,
+                    "src": "319:6:11",
+                    "subExpression": {
+                      "argumentTypes": null,
+                      "id": 2155,
+                      "name": "state",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2148,
+                      "src": "320:5:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 2163,
+                  "nodeType": "IfStatement",
+                  "src": "316:59:11",
+                  "trueBody": {
+                    "id": 2162,
+                    "nodeType": "Block",
+                    "src": "327:48:11",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "id": 2158,
+                              "name": "state",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2148,
+                              "src": "349:5:11",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              }
+                            },
+                            {
+                              "argumentTypes": null,
+                              "id": 2159,
+                              "name": "message",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2150,
+                              "src": "356:7:11",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_string_memory_ptr",
+                                "typeString": "string memory"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              },
+                              {
+                                "typeIdentifier": "t_string_memory_ptr",
+                                "typeString": "string memory"
+                              }
+                            ],
+                            "id": 2157,
+                            "name": "require",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [
+                              4082,
+                              4083
+                            ],
+                            "referencedDeclaration": 4083,
+                            "src": "341:7:11",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                              "typeString": "function (bool,string memory) pure"
+                            }
+                          },
+                          "id": 2160,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "341:23:11",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_tuple$__$",
+                            "typeString": "tuple()"
+                          }
+                        },
+                        "id": 2161,
+                        "nodeType": "ExpressionStatement",
+                        "src": "341:23:11"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2165,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "_requireWithAddress",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2153,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2148,
+                  "name": "state",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2165,
+                  "src": "213:10:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 2147,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "213:4:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2150,
+                  "name": "message",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2165,
+                  "src": "225:14:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2149,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "225:6:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2152,
+                  "name": "sender",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2165,
+                  "src": "241:14:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2151,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "241:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "212:44:11"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 2154,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "266:0:11"
+            },
+            "scope": 2166,
+            "src": "184:197:11",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 2167,
+        "src": "26:358:11"
+      }
+    ],
+    "src": "0:384:11"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.23+commit.124ca40d.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-05-22T18:07:10.624Z"
+}
