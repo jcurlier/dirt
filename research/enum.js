@@ -22,11 +22,11 @@ process.on('exit', () => console.timeEnd('enum')); // eslint-disable-line
 const exec = async () => {
   console.time('enum'); // eslint-disable-line
 
-  debug(`Creating the Dirt client`);
+  debug(`creating the Dirt client`);
   const client = await Dirt.create(dirtConfiguration);
-  debug(`Done creating the Dirt client`);
+  debug(`done creating the Dirt client`);
 
-  debug(`Getting registry information`);
+  debug(`getting registry information`);
   const registryDescriptors = [];
   const eumerator = client.Root.getEnumerator();
   while (await eumerator.next()) { // eslint-disable-line
@@ -38,20 +38,20 @@ const exec = async () => {
       // timestamp,
     } = registryDescriptor;
 
-    debug(`Registry descriptor: ${name} {${address}}`);
+    debug(`registry descriptor: ${name} {${address}}`);
     registryDescriptors.push(registryDescriptor);
   }
-  debug(`Done getting registry information`);
+  debug(`done getting registry information`);
 
-  debug(`Getting the registries`);
+  debug(`getting the registries`);
   const registries = await Promise.all(
     registryDescriptors.map(
       descriptor => client.getRegistryAtAddress(descriptor.address, 'ChallengeableRegistry'),
     ),
   );
-  debug(`Done getting the registries`);
+  debug(`done getting the registries`);
 
-  debug(`Getting the registry items`);
+  debug(`getting the registry items`);
   registries.forEach(async (registry) => {
     const {name} = registry;
     const registryEumerator = registry.getEnumerator();
@@ -66,7 +66,7 @@ const exec = async () => {
         // timestamp,
         // stake,
       } = itemDescriptor;
-      debug(`Registry ${name} Item ${key}:${value}}`);
+      debug(`registry ${name} Item ${key}:${value}}`);
     }
   });
 };

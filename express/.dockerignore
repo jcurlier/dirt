@@ -1,0 +1,9 @@
+.DS_Store
+.env
+.env.sample
+.gitignore
+Dockerfile
+npm-debug.log
+node_modules
+README.md
+test

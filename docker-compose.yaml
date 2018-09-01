@@ -1,11 +1,11 @@
 version: '3.7'
 services:
-  api:
-    build: .
+  express:
+    build: ./express
     environment:
       - NODE_ENV=production
       - PORT=3001
-      - INFURA_ENDPOINT
       - ROOT_ADDRESS=0xDb1E8F93854cbC9272dA69544Fc62E5d4511c7D1
+      - INFURA_ENDPOINT
     ports:
       - 3001:3001

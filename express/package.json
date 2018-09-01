@@ -1,0 +1,39 @@
+{
+  "name": "@dirt/express",
+  "version": "0.0.1",
+  "main": "server/index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "start": "DEBUG=apicache,dirt:api:connectors:providerCache node .",
+    "test": "NODE_ENV=test jest --runInBand ./test"
+  },
+  "dependencies": {
+    "@dirt/contracts": "file:./lib/@dirt/contracts",
+    "@dirt/lib": "file:./lib/@dirt/lib",
+    "ajv": "6.5.3",
+    "apicache": "^1.2.3",
+    "compression": "1.7.3",
+    "cors": "2.8.4",
+    "debug": "3.1.0",
+    "dotenv": "6.0.0",
+    "express": "4.16.3",
+    "helmet": "3.13.0",
+    "morgan": "1.9.0",
+    "web3": "0.20.6"
+  },
+  "devDependencies": {
+    "eslint": "5.4.0",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-plugin-import": "2.14.0",
+    "jest": "23.5.0",
+    "jest-plugins": "2.9.0",
+    "jest-plugins-recommended": "2.9.0",
+    "supertest": "3.1.0"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "license": "UNLICENSED",
+  "description": "Dirt express API"
+}

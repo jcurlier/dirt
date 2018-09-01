@@ -1,6 +1,6 @@
 # Research
 
-This is a playground to get the registries and the registry items and to play with optimization options.
+This is a playground to get the registries and the registry items; and to investigate with optimization options.
 
 ## Discovery
 
@@ -17,7 +17,7 @@ This is a playground to get the registries and the registry items and to play wi
 
 No cache, using enumerator.
 
-`npm run research:enum`
+`npm run enum`
 
 Time: around 25s
 
@@ -27,11 +27,11 @@ Time: around 25s
 - static response for `net_version`
 - static response for `RootRegistry` bytecode 
 
-`npm run research:quick`
+`npm run quick`
 
 Time: around 6s
 
-### Performance
+### Performance findings
 
 #### Base
 

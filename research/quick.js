@@ -25,11 +25,11 @@ process.on('exit', () => console.timeEnd('quick')); // eslint-disable-line
 const exec = async () => {
   console.time('quick'); // eslint-disable-line
 
-  debug(`Creating the Dirt client`);
+  debug(`creating the Dirt client`);
   const client = await Dirt.create(dirtConfiguration);
-  debug(`Done creating the Dirt client`);
+  debug(`done creating the Dirt client`);
 
-  debug(`Getting the registries`);
+  debug(`getting the registries`);
   const count = await client.Root.count();
   const registryPromises = [];
   for (let i = 0; i < count; i++) {
@@ -38,11 +38,11 @@ const exec = async () => {
 
   const registryDescriptors = await Promise.all(registryPromises);
   registryDescriptors.forEach(
-    ({name, address}) => debug(`Registry descriptor: ${name} {${address}}`),
+    ({name, address}) => debug(`registry descriptor: ${name} {${address}}`),
   );
-  debug(`Done getting the registries`);
+  debug(`done getting the registries`);
 
-  debug(`Getting the registry items`);
+  debug(`getting the registry items`);
   const itemPromises = [];
   registryDescriptors.forEach((descriptor) => {
     client.getRegistryAtAddress(descriptor.address, 'ChallengeableRegistry')
@@ -52,7 +52,7 @@ const exec = async () => {
           itemPromises.push(
             registry.itemAtIndex(j)
               .then(({key, value}) => {
-                debug(`Registry ${descriptor.name} Item ${key}:${value}}`);
+                debug(`registry ${descriptor.name} Item ${key}:${value}}`);
               }),
           );
         }
