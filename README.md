@@ -10,7 +10,7 @@ See [research](./research)
 
 ### Express
 
-This is an implementation of an Express server to retrieve registries and items.
+This is an implementation of an Express server to retrieve registries and items through the Dirt client.
 
 See [express](./express)
 
