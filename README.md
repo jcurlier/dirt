@@ -20,6 +20,12 @@ This is an implementation of a Loopback server to retrieve registries and items 
 
 See [loopback](./loopback)
 
+### Ingestor
+
+This is the application synchronizing the BLockchain data into the postgreSQL database.
+
+See [ingestor](./ingestor)
+
 ## Starting the application(s)
 
 1. Get an Infura API key at [infura.io](infura.io).
@@ -36,6 +42,8 @@ ROOT_ADDRESS | Dirt root address, for example `0xDb1E8F93854cbC9272dA69544Fc62E5
 `docker-compose up --build`
 
 4. Connect to the Express `api`, default [http://localhost/:3001/](http://localhost/:3001/)
+
+5. Connect to the Loopback `api`, default [http://localhost/:3002/](http://localhost/:3002/)
 
 *Tip*: You can use the Insomnia [workspace](./tools/insomnia)
 
