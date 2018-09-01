@@ -8,7 +8,7 @@
     "dev": "DATABASE_URL=postgres://dirt:password@127.0.0.1:5432/dirt?ssl=false node .",
     "start": "node .",
     "lint": "eslint .",
-    "test": "jest --runInBand"
+    "test": "DATABASE_URL=postgres://dirt:password@127.0.0.1:5432/dirt?ssl=false jest --runInBand --detectOpenHandles"
   },
   "dependencies": {
     "compression": "1.7.3",

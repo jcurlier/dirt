@@ -25,7 +25,8 @@ describe('GET /invalid', () => {
   it('should return an empty response', async () => {
     expect(response.body).toMatchObject({
       error: {
-        message: 'Cannot GET /invalid',
+        message: 'There is no method to handle GET /invalid',
+        statusCode: 404,
       },
     });
   });

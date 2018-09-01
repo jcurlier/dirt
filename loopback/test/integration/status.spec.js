@@ -4,7 +4,7 @@ const supertest = require('supertest');
 /**
  * This is testing the status presence.
  */
-describe('GET /status', () => {
+describe('GET /', () => {
   let app;
   let response;
 
@@ -13,7 +13,7 @@ describe('GET /status', () => {
   // --------------------------------------------------
   beforeAll(async () => {
     app = await loopbackApp(); // eslint-disable-line no-undef
-    response = await supertest(app).get('/status');
+    response = await supertest(app).get('/');
   });
 
   it('should return a 200', () => {
