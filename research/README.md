@@ -7,9 +7,8 @@ This is a playground to get the registries and the registry items; and to invest
 ### Installation
 
 1. `npm install`
-2. Set up `.env` (See `.env.sample`)
 
-**Note**: To make it easier to read the log, removed the `console.log` statement from `StaticContractProvider.prototype.get` inside `@dirt/lib`.
+2. Set up `.env` (See `.env.sample`)
 
 ### Runnning the scripts
 
