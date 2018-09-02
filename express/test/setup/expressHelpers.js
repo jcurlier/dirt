@@ -3,7 +3,7 @@ require('dotenv').config();
 
 // Dirt
 const app = require('../../server/app');
-const dirtConnector = require('../../server/connectors/dirt.js');
+const dirtConnector = require('../../server/connectors/dirtConnector.js');
 
 // Test helpers.
 const expressApp = async () => {

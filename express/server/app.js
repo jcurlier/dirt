@@ -6,9 +6,12 @@ const compression = require('compression');
 const helmet = require('helmet');
 const apicache = require('apicache');
 
-// Dirt
-const registryService = require('./services/registry.js');
+// Dirt Libraries
+const registryService = require('./services/registryService.js');
 
+/**
+ * Configuration
+ */
 const cache = apicache
   .options({
     enabled: true,
@@ -18,9 +21,10 @@ const cache = apicache
   })
   .middleware;
 
-const started = Date.now();
+/**
+ * Middlewares
+ */
 
-// Middlewares
 const app = express();
 if (process.env.NODE_ENV !== 'test') {
   app.use(morgan('tiny'));
@@ -29,7 +33,12 @@ app.use(helmet());
 app.use(cors());
 app.use(compression());
 
-// Routes
+/**
+ * Routes
+ */
+
+// server status
+const started = Date.now();
 app.get('/', (req, res) => {
   const uptime = Date.now() - started;
   res.json({
@@ -38,12 +47,13 @@ app.get('/', (req, res) => {
   });
 });
 
-
+// get registries
 app.get('/registries', cache('1 hour'), async (req, res) => {
   const registries = await registryService.getRegistries();
   res.json(registries);
 });
 
+// get registry items
 app.get('/registries/:registry_address', cache('10 minutes'), async (req, res) => {
   const {registry_address: registryAddress} = req.params;
   const registry = await registryService.getRegistryItems(registryAddress);

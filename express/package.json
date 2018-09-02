@@ -4,7 +4,8 @@
   "main": "server/index.js",
   "scripts": {
     "lint": "eslint .",
-    "start": "DEBUG=apicache,dirt:api:connectors:providerCache node .",
+    "dev": "DEBUG=apicache,dirt:api:connectors:providerCache node .",
+    "start": "node .",
     "test": "NODE_ENV=test jest --runInBand ./test"
   },
   "dependencies": {

@@ -30,11 +30,17 @@ PORT | For example, `3001` (default to `3001`)
 
 4. Start the web server
 
+Development:
+`npm run dev`
+
+Production:
 `npm start`
 
 5. Connect to the `api`, default [http://localhost/:3001/](http://localhost/:3001/)
 
 *Tip*: You can use the Insomnia [workspace](../tools/insomnia)
+
+*Tip*: Bypass the Express cache by setting the HTTP header `x-apicache-bypass` to true.
 
 ## Test
 
