@@ -54,10 +54,10 @@ ROOT_ADDRESS | Dirt root address, for example `0xDb1E8F93854cbC9272dA69544Fc62E5
 ID | Description
 ---- | ----
 1 | Should the item endpoint be `/registries/:id/items`?
-2 | The HTTP provider is [deprecated](https://web3js.readthedocs.io/en/1.0/web3.html#value), as it won’t work for subscriptions.
-3 | Productionize (Error Handling, Logging, etc.)
-4 | Seems `eth_getCode` is already cache
-5 | Should `stake` not be a sting
+2 | Is the HTTP provider deprecated? See [web3js documentation](https://web3js.readthedocs.io/en/1.0/web3.html#value)
+3 | Seems `eth_getCode` is already cache
+4 | Should `stake` not be a sting?
+5 | Productionize (Error Handling, Logging, etc.)
 
 ### Closed
 
@@ -69,4 +69,4 @@ ID | Description
 
 ## Notes
 
-- To make it easier to read the log, removed the `console.log` statement from `StaticContractProvider.prototype.get` inside `@dirt/lib`.
+- To make it easier to read the log, removed the `console.log` statement from `StaticContractProvider.prototype.get` inside the provided version of `@dirt/lib`.
