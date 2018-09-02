@@ -26,9 +26,11 @@ describe('GET /registry items', () => {
 
   it('should get no items for 0x0c09614c65251147262c1c6827cd48db5ed423c1', async () => {
     const response = await supertest(app)
-      .get(`/registries/0x0c09614c65251147262c1c6827cd48db5ed423c1`)
+      .get(`/registries/0x0c09614c65251147262c1c6827cd48db5ed423c1/items`)
       .set('Accept', 'application/json');
 
-    expect(response.status).toBe(404);
+    expect(response.status).toBe(200);
+    expect(response.body).toBeDefined();
+    expect(response.body).toHaveLength(0);
   });
 });

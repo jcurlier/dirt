@@ -27,6 +27,10 @@ DATABASE_URL | for example, postgres://dirt:password@127.0.0.1:5432/dirt
 
 5. Start the web server
 
+Development:
+`npm run dev`
+
+Production:
 `npm start`
 
 6. Connect to the `api`, default [http://localhost/:3002/](http://localhost/:3002/)

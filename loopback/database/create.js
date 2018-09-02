@@ -1,5 +1,6 @@
 /**
  * Creates the database schema.
+ * Make sure to set the DATABASE_URL environment variable.
  * @see http://apidocs.strongloop.com/loopback-datasource-juggler/#datasource-prototype-automigrate
  */
 
