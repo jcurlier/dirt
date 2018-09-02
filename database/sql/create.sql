@@ -1,4 +1,4 @@
--- CREATE public.item;
+-- CREATE the items table
 
 CREATE TABLE items (
 	"key" text NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE items (
 	CONSTRAINT item_pkey PRIMARY KEY ("key")
 );
 
--- CREATE public.registry;
+-- CREATE the registries table
 
 CREATE TABLE registries (
 	address text NOT NULL,
