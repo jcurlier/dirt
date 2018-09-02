@@ -1,6 +1,7 @@
 # Research
 
-This is a playground to get the registries and the registry items; and to investigate with optimization options.
+This is a playground to get the registries and the registry items; 
+and to investigate optimization options.
 
 ## Discovery
 
@@ -18,7 +19,7 @@ No cache, using enumerator.
 
 `npm run enum`
 
-Time: around 25s
+Time: around `25s`
 
 #### Quicker implmentation
 
@@ -28,7 +29,7 @@ Time: around 25s
 
 `npm run quick`
 
-Time: around 6s
+Time: around `6s`
 
 ### Performance findings
 
@@ -36,7 +37,7 @@ Time: around 6s
 
 Action | Time
 ---- | ----
-Create Client | 6s
-Get registry descriptor | >500ms each
-Get registries | >1s for both
-Get registry item | >500ms each
+Create Client | `6s`
+Get registry descriptor | `>500ms` each
+Get registries | `>1s` for both
+Get registry item | `>500ms` each

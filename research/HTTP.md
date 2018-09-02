@@ -1,4 +1,4 @@
-# HTTP Log
+# HTTP Log Discovery
 
 ## Actions
 
@@ -74,10 +74,3 @@ Name | Description
 [net_version](https://infura.io/docs/api/get/net_version) | Returns the current network id.
 [eth_call](https://infura.io/docs/api/post/eth_call) | Executes a new message call immediately without creating a transaction on the block chain.
 [eth_getCode](https://infura.io/docs/api/get/eth_getCode) | Returns code at a given address.
-
-## Configuration
-
-**Note**: Added log in:
-- `XMLHttpRequest.prototype.send`
-- `XMLHttpRequest.prototype.open`
-- `XMLHttpRequest.prototype._parseResponse`

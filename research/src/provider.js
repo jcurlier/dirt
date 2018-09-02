@@ -1,3 +1,8 @@
+/**
+ * Hook for the provider to cache.
+ * @module
+ */
+
 // Libraries
 const Web3 = require('web3');
 const debug = require('debug')('dirt:research:provider');

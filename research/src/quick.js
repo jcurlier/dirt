@@ -1,3 +1,9 @@
+/**
+ * Test getting all the registries and items
+ * using the the index and caching.
+ * @module
+ */
+
 // Libraries
 require('dotenv').config();
 const Web3 = require('web3');

@@ -1,3 +1,9 @@
+/**
+ * Test getting all the registries and items
+ * using the enumerator without caching.
+ * @module
+ */
+
 // Libraries
 require('dotenv').config();
 const debug = require('debug')('dirt:research:enum');
