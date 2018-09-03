@@ -28,6 +28,8 @@ See [loopback](./loopback)
 
 This is the application synchronizing the Blockchain data into the postgreSQL database.
 
+**Note:** Currently the data is loaded once, but should be syncrhonized usign the contract events `RegistryCreated`, `AddItem`, `DeleteItem`, `EditItem`.
+
 ![Loopback](/docs/images/loopback.png)
 
 See [ingestor](./ingestor)
@@ -60,9 +62,9 @@ ROOT_ADDRESS | Dirt root address, for example `0xDb1E8F93854cbC9272dA69544Fc62E5
 ID | Description
 ---- | ----
 1 | Should the item endpoint be `/registries/:id/items`?
-2 | Is the HTTP provider deprecated? See [web3js documentation](https://web3js.readthedocs.io/en/1.0/web3.html#value)
-4 | Should `stake` not be a sting?
-5 | Productionize (Error Handling, Logging, etc.)
+2 | Should `stake` not be a sting?
+3 | Productionize (Error Handling, Logging, etc.)
+4 | Use events such as `RegistryCreated`, `AddItem`, `DeleteItem`, `EditItem` to synchronize the database
 
 ### Closed
 
@@ -71,7 +73,8 @@ ID | Description
 1 | `itemAtIndex` would be faster than `Async` enumerator, it doesn't seem to be the recommended `API` (it might also create some issue of concurrency) - *keep using `Enumerator`*
 2 | Is the `name` for the `registry` returning the `address`? `fixed in a new release`
 3 | How to know which type a registry is, currently assuming `StackableRegistry`? *Use `ChallengeableRegistry`*
-4| 3 | Seems `eth_getCode` is already cache - See `getContractInstance` `contractCache`
+4 | Seems `eth_getCode` is already cache - See `getContractInstance` `contractCache`
 ## Notes
+5 | Is the HTTP provider deprecated? See [web3js documentation](https://web3js.readthedocs.io/en/1.0/web3.html#value) - See documentation
 
 - To make it easier to read the log, removed the `console.log` statement from `StaticContractProvider.prototype.get` inside the provided version of `@dirt/lib`.
