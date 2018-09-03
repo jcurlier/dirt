@@ -2,6 +2,8 @@
 
 This is a web server connecting to the blockchain though the Dirt API.
 
+![Express](../docs/images/express.png)
+
 ## Cache
 
 Location | Description | Duration

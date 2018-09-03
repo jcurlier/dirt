@@ -2,6 +2,8 @@
 
 This is a web server connecting to the postgreSQL database.
 
+![Loopback](../docs/images/loopback.png)
+
 ## Starting the Web server
 
 1. Start a postgreSQL database

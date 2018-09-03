@@ -12,11 +12,15 @@ See [research](./research)
 
 This is an implementation of an Express server to retrieve registries and items using the Dirt client.
 
+![Express](/docs/images/express.png)
+
 See [express](./express)
 
 ### Loopback
 
 This is an implementation of a Loopback server to retrieve registries and items using a postgreSQL database.
+
+![Loopback](/docs/images/loopback.png)
 
 See [loopback](./loopback)
 
