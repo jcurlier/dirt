@@ -1,7 +1,8 @@
 // Libraries
 const Web3 = require('web3');
-const debug = require('debug')('dirt:ingestor:provider');
-const providerCache = require('./cache');
+const debug = require('debug')('dirt:api:connectors:provider');
+
+const providerCache = require('./providerCache');
 
 // Overwrite sendAsSync
 const {HttpProvider} = Web3.providers;
@@ -18,9 +19,10 @@ HttpProvider.prototype.sendAsync = new Proxy(HttpProvider.prototype.sendAsync, {
     debug('request:', payload);
     Reflect.apply(target, thisArg, [
       payload,
-      (error, result) => {
-        debug('response:', result);
-        return callback(error, result);
+      (error, response) => {
+        debug('response:', response);
+        providerCache.set(payload, response);
+        return callback(error, response);
       },
     ]);
   },

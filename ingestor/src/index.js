@@ -1,25 +1,16 @@
+/**
+ * Ingestor.
+ * This is a prelimiary implementation of a full replace.
+ * @module
+ */
+
 // Libraries
 require('dotenv').config();
-const Web3 = require('web3');
 const debug = require('debug')('dirt:ingestor');
 
 // Dirt Libraries
-const {Dirt} = require('@dirt/lib');
-const database = require('./database');
-const provider = require('./provider');
-
-// Configuration
-const {ROOT_ADDRESS: rootAddress} = process.env;
-const instance = new Web3(provider);
-
-// Dirt client configuration
-const dirtConfiguration = {
-  rootAddress,
-  trace: false,
-  web3: {
-    instance,
-  },
-};
+const database = require('./database/postgresConnector');
+const dirt = require('./blockchain/dirtConnector');
 
 process.on('exit', () => console.timeEnd('ingestor')); // eslint-disable-line
 
@@ -27,26 +18,23 @@ const exec = async () => {
   console.time('ingestor'); // eslint-disable-line
 
   debug(`creating the Dirt client`);
-  const client = await Dirt.create(dirtConfiguration);
+  await dirt.init();
   debug(`done creating the Dirt client`);
 
+  debug(`clearing the database`);
   await database.execute(`DELETE FROM registries`);
   await database.execute(`DELETE FROM items`);
 
-  debug(`getting registry information`);
-  const registryDescriptors = [];
-  const eumerator = client.Root.getEnumerator();
-  while (await eumerator.next()) { // eslint-disable-line
-    const registryDescriptor = eumerator.current;
+  debug(`getting registies information`);
+  const registryDescriptors = await dirt.getRegistries();
+  registryDescriptors.forEach(async (registryDescriptor) => {
     const {
       name,
       address,
-      vote_style: voteStyle,
-      timestamp,
+      votestyle,
+      date,
     } = registryDescriptor;
-
     debug(`registry descriptor: ${name} {${address}}`);
-    registryDescriptors.push(registryDescriptor);
 
     // eslint-disable-next-line
     await database.execute(`
@@ -56,35 +44,20 @@ const exec = async () => {
     [
       address,
       name,
-      voteStyle,
-      new Date(timestamp * 1000),
+      votestyle,
+      date,
     ]);
-  }
-  debug(`done getting registry information`);
 
-  debug(`getting the registries`);
-  const registries = await Promise.all(
-    registryDescriptors.map(
-      descriptor => client.getRegistryAtAddress(descriptor.address, 'ChallengeableRegistry'),
-    ),
-  );
-  debug(`done getting the registries`);
-
-  debug(`getting the registry items`);
-  registries.forEach(async (registry) => {
-    const {name, address} = registry;
-    const registryEumerator = registry.getEnumerator();
-
-    while (await registryEumerator.next()) { // eslint-disable-line
-      const itemDescriptor = registryEumerator.current;
+    const registryItems = await dirt.getRegistryItems(address);
+    registryItems.forEach(async (registryItem) => {
       const {
         key,
         value,
         owner,
-        blockHistory,
-        timestamp,
+        blockhistory,
+        date: itemDate,
         stake,
-      } = itemDescriptor;
+      } = registryItem;
       debug(`registry ${name} Item ${key}:${value}}`);
 
       // eslint-disable-next-line
@@ -96,12 +69,12 @@ const exec = async () => {
         key,
         value,
         owner,
-        blockHistory,
-        new Date(timestamp * 1000),
+        blockhistory,
+        itemDate,
         stake.toString(),
         address,
       ]);
-    }
+    });
   });
 };
 
