@@ -26,7 +26,9 @@ See [loopback](./loopback)
 
 ### Ingestor
 
-This is the application synchronizing the BLockchain data into the postgreSQL database.
+This is the application synchronizing the Blockchain data into the postgreSQL database.
+
+![Loopback](/docs/images/loopback.png)
 
 See [ingestor](./ingestor)
 
