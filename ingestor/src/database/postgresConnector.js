@@ -5,7 +5,7 @@ const {Client} = require('pg');
  * PostgreSQL Connector,
  * @class
  */
-class DirtConnector {
+class PostgresConnector {
 
   /**
    * Initialize the connector.
@@ -20,4 +20,4 @@ class DirtConnector {
 
 }
 
-module.exports = new DirtConnector();
+module.exports = new PostgresConnector();
